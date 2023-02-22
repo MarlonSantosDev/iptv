@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iptv/tv/TvPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -66,7 +67,12 @@ class _HomePageState extends State<HomePage> {
         children: [
           card(
             titulo: "Tv",
-            function: () => print("TV"),
+            function: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const TVPage(),
+              ),
+            ),
             qtdCanais: "5203",
             icon: Icons.live_tv,
           ),
