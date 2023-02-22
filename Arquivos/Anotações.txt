@@ -1,4 +1,22 @@
-https://flutterawesome.com/an-iptv-player-developed-for-android-ios-devices-with-flutter/
+Criar APK 
+    para x86:
+        flutter build apk --release --target-platform=android-arm
 
+    para x64
+        flutter build apk --release --target-platform=android-arm64
 
-http://infraz.top/get.php?username=z4295483&password=2ft1z4u&type=m3u_plus&output=ts
+    para Web
+        flutter build web --release
+
+Mobx
+    flutter packages pub run build_runner watch --delete-conflicting-outputs
+
+Criar ICON
+    flutter pub get
+    flutter pub run icons_launcher:create
+
+Modelo de Tela    
+    https://flutterawesome.com/an-iptv-player-developed-for-android-ios-devices-with-flutter/
+
+Arquivo m3u:
+    http://infraz.top/get.php?username=z4295483&password=2ft1z4u&type=m3u_plus&output=ts

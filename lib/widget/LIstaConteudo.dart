@@ -9,7 +9,7 @@ class ListaConteudo extends StatelessWidget {
       children: [
         Expanded(
           child: ListView.builder(
-            itemCount: 5,
+            itemCount: 20,
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
                 leading: const Icon(Icons.list),
@@ -24,14 +24,25 @@ class ListaConteudo extends StatelessWidget {
         ),
         Expanded(
           flex: 2,
-          child: Container(
-            alignment: Alignment.center,
-            width: 10,
-            color: Colors.amber,
-            child: const Text("TV"),
+          child: GridView.builder(
+            itemCount: 20,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4,
+            ),
+            itemBuilder: (BuildContext context, int index) {
+              return card();
+            },
           ),
         ),
       ],
+    );
+  }
+
+  Widget card() {
+    return Container(
+      margin: EdgeInsets.all(8),
+      color: Colors.amberAccent,
+      child: const Text("NOME"),
     );
   }
 }

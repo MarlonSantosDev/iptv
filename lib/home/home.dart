@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iptv/tv/TvPage.dart';
+import 'package:iptv/config/view/ConfigPage.dart';
+import 'package:iptv/tv/view/TvPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -41,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(fontSize: 14, color: Colors.grey[350]),
                 ),
                 Text(
-                  "Feb 10, 2023",
+                  "Feb 22, 2023",
                   style: TextStyle(fontSize: 14, color: Colors.grey[350]),
                 ),
               ],
@@ -50,7 +51,12 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           IconButton(
-            onPressed: () => null,
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ConfigPage(),
+              ),
+            ),
             icon: const Icon(
               Icons.settings,
               size: 24.0,

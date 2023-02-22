@@ -5,33 +5,31 @@ class Conteudo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: ListView.builder(
-            itemCount: 5,
-            itemBuilder: (BuildContext context, int index) {
-              return Text("List item $index");
-            },
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 34, 31, 48),
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 34, 31, 48),
+        title: const Text("TV - NOME DO TITULO"),
+      ),
+      body: Row(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: 5,
+              itemBuilder: (BuildContext context, int index) {
+                return Text("List item $index");
+              },
+            ),
           ),
-        ),
-        Expanded(
-          child: Container(
-            width: 10,
-            height: 10,
-            color: Colors.red,
-          ),
-        )
-      ],
-    );
-  }
-
-  Widget card() {
-    return Container(
-      color: Colors.amberAccent,
-      height: 20,
-      width: 10,
-      child: const Text("NOME"),
+          Expanded(
+            child: Container(
+              width: 10,
+              height: 10,
+              color: Colors.red,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
