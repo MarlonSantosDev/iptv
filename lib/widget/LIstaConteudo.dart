@@ -30,7 +30,7 @@ class ListaConteudo extends StatelessWidget {
               crossAxisCount: 4,
             ),
             itemBuilder: (BuildContext context, int index) {
-              return card();
+              return card(index);
             },
           ),
         ),
@@ -38,11 +38,12 @@ class ListaConteudo extends StatelessWidget {
     );
   }
 
-  Widget card() {
+  Widget card(index) {
     return Container(
+      alignment: Alignment.center,
       margin: EdgeInsets.all(8),
       color: Colors.amberAccent,
-      child: const Text("NOME"),
+      child: Text("NOME $index"),
     );
   }
 }
