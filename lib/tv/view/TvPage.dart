@@ -1,6 +1,7 @@
-// ignore_for_file: file_names
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:iptv/tv/Controller/TvController.dart';
+import 'package:iptv/widget/CarregandoWidget.dart';
 import 'package:iptv/widget/LIstaConteudo.dart';
 
 class TVPage extends StatefulWidget {
@@ -45,7 +46,13 @@ class _TVPageState extends State<TVPage> {
           ),
         ],
       ),
-      body: ListaConteudo(),
+      body: Observer(
+        builder: (_) => tvcontroller.load
+            ? Carregando()
+            : ListaConteudo(
+                controller: tvcontroller,
+              ),
+      ),
     );
   }
 }

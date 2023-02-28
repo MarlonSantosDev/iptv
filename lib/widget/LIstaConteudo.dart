@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ListaConteudo extends StatelessWidget {
-  ListaConteudo({super.key});
+  final controller;
+  ListaConteudo({required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -9,15 +10,32 @@ class ListaConteudo extends StatelessWidget {
       children: [
         Expanded(
           child: ListView.builder(
-            itemCount: 20,
+            itemCount: controller.tvModel.length,
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
-                leading: const Icon(Icons.list),
-                trailing: const Text(
-                  "GFG",
-                  style: TextStyle(color: Colors.green, fontSize: 15),
+                contentPadding: EdgeInsets.all(8),
+                leading: Container(
+                  width: 50,
+                  child: Image.network(controller.tvModel[index].tvg_logo),
                 ),
-                title: Text("List item $index"),
+                trailing: const Text(
+                  "2",
+                  style: TextStyle(color: Colors.white, fontSize: 14),
+                ),
+                title: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "${controller.tvModel[index].group_title}",
+                      style: TextStyle(color: Colors.white, fontSize: 14),
+                    ),
+                    Text(
+                      "${controller.tvModel[index].tvg_name}",
+                      style: TextStyle(color: Colors.white, fontSize: 12),
+                    ),
+                  ],
+                ),
               );
             },
           ),
