@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:iptv/config/config.dart';
 import 'package:iptv/tv/Model/TvModel.dart';
 import 'package:m3u_nullsafe/m3u_nullsafe.dart';
 import 'package:mobx/mobx.dart';

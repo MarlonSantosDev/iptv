@@ -1,5 +1,3 @@
-import 'package:iptv/config/config.dart';
-
 class TvModel {
   String? tvg_id;
   String? tvg_name;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iptv/config/view/ConfigPage.dart';
+import 'package:iptv/perfil/view/PerfilPage.dart';
 import 'package:iptv/tv/view/TvPage.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,14 +20,22 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.supervised_user_circle_outlined,
-              size: 30.0,
+            IconButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const PerfilPage(),
+                ),
+              ),
+              icon: const Icon(
+                Icons.supervised_user_circle_outlined,
+                size: 28.0,
+              ),
             ),
             const SizedBox(
               width: 5,
             ),
-            const Text("TVRio.top"),
+            const Text("IP TV"),
             Container(
               margin: const EdgeInsets.all(8),
               color: Colors.black,
@@ -79,34 +88,47 @@ class _HomePageState extends State<HomePage> {
                 builder: (context) => const TVPage(),
               ),
             ),
-            qtdCanais: "5203",
+            subtitulo: "5203 Canais",
             icon: Icons.live_tv,
           ),
           card(
             titulo: "Filmes",
             function: () => print("filmes"),
-            qtdCanais: "351",
+            subtitulo: "351 Canais",
             color: Colors.yellowAccent,
             icon: Icons.movie_outlined,
           ),
           card(
             titulo: "Séries",
             function: () => print("Séries"),
-            qtdCanais: "344",
+            subtitulo: "344 Canais",
             color: Colors.blueAccent,
             icon: Icons.local_movies_outlined,
+          ),
+          card(
+            titulo: "Downloads",
+            function: () => print("Downloads"),
+            subtitulo: '1 Conteúdo',
+            color: Colors.green,
+            icon: Icons.offline_pin_outlined,
           ),
         ],
       ),
     );
   }
 
-  Widget card({required String titulo, required IconData icon, required Function function, required String qtdCanais, Color color = Colors.grey}) {
+  Widget card({
+    required String titulo,
+    required IconData icon,
+    required Function function,
+    required String subtitulo,
+    Color color = Colors.blueGrey,
+  }) {
     return GestureDetector(
       onTap: () => function(),
       child: Container(
-        height: MediaQuery.of(context).size.height / 3,
-        width: (MediaQuery.of(context).size.width / 3) - 30,
+        height: MediaQuery.of(context).size.height / 4,
+        width: (MediaQuery.of(context).size.width / 4) - 30,
         padding: const EdgeInsets.all(15),
         margin: const EdgeInsets.all(15),
         decoration: BoxDecoration(
@@ -143,17 +165,7 @@ class _HomePageState extends State<HomePage> {
                   width: 5,
                 ),
                 Text(
-                  qtdCanais,
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.grey[350],
-                  ),
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  "Canais",
+                  subtitulo,
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.grey[350],

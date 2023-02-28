@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
-class ConfigPage extends StatefulWidget {
-  const ConfigPage({super.key});
+class PerfilPage extends StatefulWidget {
+  const PerfilPage({super.key});
 
   @override
-  State<ConfigPage> createState() => _ConfigPageState();
+  State<PerfilPage> createState() => _PerfilPageState();
 }
 
-class _ConfigPageState extends State<ConfigPage> {
+class _PerfilPageState extends State<PerfilPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 34, 31, 48),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 34, 31, 48),
-        title: Text("Configuração"),
+        title: Text("Perfil"),
       ),
       body: Center(
-        child: Text("Configuração ..."),
+        child: Text("Perfil ..."),
       ),
     );
   }
