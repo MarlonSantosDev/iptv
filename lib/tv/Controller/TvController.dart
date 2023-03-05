@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/services.dart';
+import 'package:iptv/config/config.dart';
 import 'package:iptv/tv/Model/TvModel.dart';
 import 'package:m3u_nullsafe/m3u_nullsafe.dart';
 import 'package:mobx/mobx.dart';
@@ -18,16 +20,22 @@ abstract class TvControllerbase with Store {
   }
 
   getDados() async {
-    await getListaDeCanal();
-    load = false;
+    getListaDeCanal();
+    //load = false;
+  }
+
+  Future<String> lerAquivo() async {
+    return await rootBundle.loadString('assets/m3u.m3u');
   }
 
   getListaDeCanal() async {
-    final arquivo = await File("assets/m3u.m3u").readAsString();
-    final conteuDoArquivo = await parseFile(arquivo);
-    List dados = [];
+    String conteuDoArquivo = await lerAquivo();
+    //List listaConteudo = jsonDecode(conteuDoArquivo);
+    printO(conteuDoArquivo);
 
-    conteuDoArquivo.map((e) {
+    [1].map((e) {
+      printW(e);
+      /*
       String valor = e.toString().substring(e.toString().indexOf('tvg-id='), e.toString().length);
       String valor2 = valor.substring(valor.toString().indexOf('group-title='), valor.length);
       List lista2 = valor2.split(',');
@@ -36,10 +44,13 @@ abstract class TvControllerbase with Store {
       completo = completo.replaceAll(':"', '":"');
       completo = completo.replaceAll('" ', '", "');
       dados.add(completo);
+      */
     }).toList();
+    /*
     List rest = jsonDecode(dados.toString());
     rest.map((value) {
       if (value["group-title"].contains('CANAI')) tvModel.add(TvModel.fromJson(value));
     }).toList();
+    */
   }
 }
